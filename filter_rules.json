@@ -1,0 +1,9 @@
+[
+  {
+    "name": "find_Luke",
+    "type": "contains_text",
+    "fields": {
+      "name": "Luk"
+    }
+  }
+]
