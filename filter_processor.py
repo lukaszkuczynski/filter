@@ -18,4 +18,4 @@ class FilterProcessor:
                 filtered_out.append(doc)
                 continue
             left.append(doc)
-        return filtered_out
+        return left
