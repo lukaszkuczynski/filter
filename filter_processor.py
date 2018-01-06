@@ -1,4 +1,4 @@
-from filter_rule import FilterRule
+from filter_rule import FilterFactory
 
 
 class FilterProcessor:
@@ -8,7 +8,7 @@ class FilterProcessor:
         Create filter processor with rules
         :param rules: Collection of rules as dict (described in README)
         '''
-        self.rules = [FilterRule(rule) for rule in rules]
+        self.rules = [FilterFactory().for_rule(rule) for rule in rules]
 
     def process(self, docs):
         left = []
@@ -18,4 +18,4 @@ class FilterProcessor:
                 filtered_out.append(doc)
                 continue
             left.append(doc)
-        return left
+        return left, filtered_out
