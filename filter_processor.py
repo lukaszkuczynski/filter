@@ -1,12 +1,12 @@
 from filter_rule import FilterRule
 
 
-class Filter:
+class FilterProcessor:
 
     def __init__(self, rules):
         '''
-        Create filter with rules
-        :param rules: Collection of rules as dict
+        Create filter processor with rules
+        :param rules: Collection of rules as dict (described in README)
         '''
         self.rules = [FilterRule(rule) for rule in rules]
 
