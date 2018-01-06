@@ -24,5 +24,9 @@ class FilterContainsTextRule(FilterRule):
 class FilterFactory:
 
     def for_rule(self, rule):
+        if not 'type' in rule.keys():
+            raise Exception("Rule definition should contain 'type' field")
         if rule['type'] == 'contains_text':
             return FilterContainsTextRule(rule)
+        else:
+            raise Exception("Filter rule of '%s' type is not defined" % rule['type'])
