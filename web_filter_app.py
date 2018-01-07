@@ -15,6 +15,8 @@ def hello_world():
 def filter_endpoint():
     documents = request.get_json(force=True)
     rules = get_filter_rules_dict()
+    print(rules)
+    print(type(rules))
     processor = FilterProcessor(rules)
     try:
         left, removed = processor.process(docs=documents)
@@ -32,5 +34,6 @@ def get_filter_rules():
 
 def get_filter_rules_dict():
     rules_json = os.getenv("FILTER_RULES_JSON", "[]")
+    rules_json = "[{\"name\":\"find_Luke\",\"type\":\"contains_text\",\"fields\":{\"name\":\"Luk\"}}]"
     rules = json.loads(rules_json)
     return rules
